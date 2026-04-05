@@ -67,7 +67,7 @@ class SerialConfig:
     parity: str
     stop_bits: int
 
-def sys_print(message: str, color: Optional[str] = None, end: str = "\r\n", flush: bool = True):
+def sys_print(message: str, color: Optional[str] = None, end: str = "\r\n", flush: bool = False):
     if color is not None:
         message = f"{color}{message}{Color.RESET}"
     print(message, file=sys.stderr, end=end, flush=flush)
@@ -199,6 +199,8 @@ class UartTerminal:
                 out.append("\n")
             elif b == 0x0D:
                 out.append("\r")
+            elif b == 0x1B:  # ESC - allow ANSI sequences
+                out.append("\x1b")
             elif 0x20 <= b <= 0x7E:
                 out.append(chr(b))
             else:
@@ -317,7 +319,11 @@ class UartTerminal:
 
 
 def list_devices() -> List[str]:
-    return sorted(glob.glob("/dev/cu.*"))
+    devices = sorted(glob.glob("/dev/cu.*"))
+    return [
+        d for d in devices
+        if not d.endswith("Bluetooth-Incoming-Port")
+    ]
 
 
 def choose_from_list(prompt: str, options: List[str], cast=str):
