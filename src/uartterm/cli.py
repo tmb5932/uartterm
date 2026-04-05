@@ -319,11 +319,7 @@ class UartTerminal:
 
 
 def list_devices() -> List[str]:
-    devices = sorted(glob.glob("/dev/cu.*"))
-    return [
-        d for d in devices
-        if not d.endswith("Bluetooth-Incoming-Port")
-    ]
+    return sorted(glob.glob("/dev/cu.*"))
 
 
 def choose_from_list(prompt: str, options: List[str], cast=str):
