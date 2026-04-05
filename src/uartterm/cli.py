@@ -229,7 +229,7 @@ class UartTerminal:
         self._close_serial()
 
         while not self.stop_requested:
-            sys_print(f"Attempting reconnection to {self.config.device} in 0.5 seconds...", Color.YELLOW)
+            sys_print(f"Attempting reconnection to {self.config.device}...", Color.YELLOW)
             start = time.monotonic()
 
             while (time.monotonic() - start) < 0.5 and not self.stop_requested:
