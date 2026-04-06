@@ -4,19 +4,19 @@ This is a terminal-based UART tool for macOS only.
 
 ## To Install
 
-Requires Python 3.6 or higher and pyserial library.
+Requires Python 3.6 or higher.
 
 To install, clone the repository and navigate to the project directory.
 
-Once cloned, simply run the build script to compile the python script into a standalone executable, and 
-it will automatically install the executable to /usr/local/bin/uartterm for easy access from anywhere in the terminal.
+Once cloned, simply run the install.sh script to automatically add a symlink to the executable to `/usr/local/bin/uartterm` for easy access from anywhere in the terminal.
 
-The build will most likely require your admin password, so be prepared to enter it when prompted.
+The installer will most likely require your admin password, so be prepared to enter it when prompted.
 
 ```bash
-./build.sh
+./install.sh
 ```
 
+Once ran, simply open a new terminal window and you should be able to run `uartterm` from anywhere.
 
 ## Usage
 
