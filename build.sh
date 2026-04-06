@@ -8,7 +8,6 @@ echo "Building uartterm..."
 cd "$(dirname "$0")"
 
 # Run PyInstaller
-rm -rf dist/uartterm build/uartterm
 pyinstaller --onedir --name uartterm src/uartterm/cli.py
 
 # Update symlink

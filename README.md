@@ -1,8 +1,17 @@
 # macOS UART Terminal
 
-This is a terminal-based UART tool for macOS.
+This is a terminal-based UART tool for macOS only.
 
-## Update uartterm build
+## To Install
+
+Requires Python 3.6 or higher and pyserial library.
+
+To install, clone the repository and navigate to the project directory.
+
+Once cloned, simply run the build script to compile the python script into a standalone executable, and 
+it will automatically install the executable to /usr/local/bin/uartterm for easy access from anywhere in the terminal.
+
+The build will most likely require your admin password, so be prepared to enter it when prompted.
 
 ```bash
 ./build.sh
@@ -30,6 +39,9 @@ options:
   --list                List available /dev/cu.* devices and exit
 ```
 
+
+## To use straight as Python
+
 Interactive mode:
 ```bash
 python3 cli.py
@@ -37,10 +49,10 @@ python3 cli.py
 
 List serial devices:
 ```bash
-python3 cli.py --list
+python3 src/uartterm/cli.py --list
 ```
 
 Fully specified:
 ```bash
-python3 cli.py   --device /dev/cu.usbserial-0001   --baud 115200   --data-bits 8   --parity none   --stop-bits 1
+python3 src/uartterm/cli.py   --device /dev/cu.usbserial-0001   --baud 115200   --data-bits 8   --parity none   --stop-bits 1
 ```
