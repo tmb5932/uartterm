@@ -2,15 +2,18 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-BIN_PATH="$SCRIPT_DIR/uartterm"
+BIN_PATH="$SCRIPT_DIR/bin/uartterm"
 
-if [ ! -f "$BIN_PATH" ]; then
+echo `ls -e "$BIN_PATH"`
+
+if [ ! -e "$BIN_PATH" ] && [ ! -L "$BIN_PATH" ]; then
   echo "uartterm executable not found."
   exit 1
 fi
 
 chmod +x "$BIN_PATH"
 sudo mkdir -p /usr/local/bin
+
 sudo cp "$BIN_PATH" /usr/local/bin/uartterm
 
 echo "Installed uartterm to /usr/local/bin/uartterm"

@@ -15,7 +15,6 @@
 .idea/**/*.iml
 
 
-dist
 build
 
 # Generated files
