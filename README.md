@@ -16,7 +16,7 @@ The installer will most likely require your admin password, so be prepared to en
 ./install.sh # or `bash install.sh` if you encounter permission issues
 ```
 
-Once ran, simply open a new terminal window and you should be able to run `uartterm` from anywhere.
+Once ran, simply open a new terminal window, and you should be able to run `uartterm` from anywhere.
 
 Disclaimer: The first time you run `uartterm` after installation it will take a second to open, but after that 
 `uartterm` will open immediately. This is normal and only happens the first time you run it after installation.

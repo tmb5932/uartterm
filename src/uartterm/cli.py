@@ -195,7 +195,9 @@ class UartTerminal:
     def _render_bytes(self, data: bytes) -> str:
         out = []
         for b in data:
-            if b == 0x0A:
+            if b == 0x09:
+                out.append("\t")
+            elif b == 0x0A:
                 out.append("\n")
             elif b == 0x0D:
                 out.append("\r")
